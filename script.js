@@ -3,7 +3,7 @@ let tasks = []; // Array to hold tasks
 document.getElementById('addTaskBtn').addEventListener('click', function () {
     let taskInput = document.getElementById('taskInput').value;
     if (taskInput) {
-        task.push(taskInput); // Add task to array
+        tasks.push(taskInput); // Add task to array
         document.getElementById('taskInput').value = ''; // Clear input field
         displayTasks(); // Update task list display
     }
@@ -21,3 +21,14 @@ function displayTasks() {
         taskList.appendChild(li);
     });
 }
+
+
+function removeTask(index){
+    tasks.splice(index, 1)
+    displayTasks()
+}
+
+document.getElementById('clearTaskBtn').addEventListener('click', function(){
+    tasks = []
+    displayTasks()
+})
