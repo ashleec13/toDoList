@@ -6,7 +6,7 @@ body {
 main {
     font-family: "tiffin-latin-variable", sans-serif;
     font-variation-settings: "wght" 300;
-    background-color: #B2FFFF;
+    background-color: #81D8D0;
     color: #01796F;
 }
 
@@ -31,9 +31,17 @@ main {
     color: #DFFFFD;
 }
 
+#clearTaskBtn:hover {
+    background-color: #003838;
+}
+
 #addTaskBtn {
     background-color: #3AB09E;
     color: #DFFFFD;
+}
+
+#addTaskBtn:hover {
+    background-color: #1e5a51;
 }
 
 h2 {
@@ -42,7 +50,7 @@ h2 {
 }
 
 #taskCounter {
-    color: #39A78D;
+    color: #1d5548;
     font-weight: bold;
 }
 
@@ -50,6 +58,18 @@ h2 {
     background-color: #DFFFFD;
     border-color: #3AB09E;
     margin-bottom: 0.75rem;
+}
+
+.list-group-item.d-flex {
+    display: grid !important;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.list-group-item .btn {
+    min-width: 44px;
+    width: 44px;
 }
 
 .task-item {
