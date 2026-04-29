@@ -1,4 +1,5 @@
 let tasks = []; // Array that stores all tasks entered by the user
+let completed = []; // Array that stores completion status for each task
 
 // Automatically place the cursor inside the input box when the page loads
 document.getElementById('taskInput').focus();
@@ -24,6 +25,7 @@ function addTask() {
     // Only add the task if the input is not empty
     if (taskInput) {
         tasks.push(taskInput); // Add the task to the tasks array
+        completed.push(false); // Add completion status
 
         // Clear the input box after adding task
         document.getElementById('taskInput').value = '';
@@ -56,6 +58,11 @@ function displayTasks() {
             'align-items-center'
         );
 
+        // Add completed class if task is completed
+        if (completed[index]) {
+            li.classList.add('completed');
+        }
+
         // Add task text and buttons for complete/delete
         li.innerHTML = `
             ${task}
@@ -74,6 +81,9 @@ function displayTasks() {
 // Function to mark/unmark a task as completed
 function toggleCompleted(button, index) {
 
+    // Toggle the completion status in the array
+    completed[index] = !completed[index];
+
     // Get the parent list item of the clicked button
     let li = button.parentElement;
 
@@ -86,6 +96,7 @@ function removeTask(index) {
 
     // Remove 1 task at the given position
     tasks.splice(index, 1);
+    completed.splice(index, 1);
 
     // Refresh the displayed list
     displayTasks();
@@ -101,6 +112,7 @@ function updateCounter() {
 document.getElementById('clearTaskBtn').addEventListener('click', function () {
 
     // Empty the tasks array
+    completed = [];
     tasks = [];
 
     // Refresh the list display
